@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Lab</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>
+       Syed Muhammad Shanib Burney <br> Ep-1850122
+    </h1>
+    <!-- 3) It's been 28 years since html was first released but people still have 
+        difficulty in writing html, Bob on the other
+         hand is an expert of html even he has provided a tool 
+         
+         to generate html most use tag of table to help inexperienced peoples,
+          people only give the number of rows required in a table and Bob's
+           web page show the table structure, for example if someone gives 3 
+           as an input to bob page, the page displays following as output:
+ 
+<table>
+        	<tr> 1 </tr>
+        	<tr> 2 </tr>
+        	<tr> 3 </tr>
+</table>
+ 
+It shows as many rows as are provided in the request, it really has helped the non-technical people to generate html, you are required to implement the same web page as Bob (Hint: No server side programing needed, use &lt; to show < and &gt; to show > on screen). -->
+<label for="">Enter number of rows for Table</label>
+<input type="text" id="myinput" type="number"> <br>
+<button>Generate HTML</button>
+<div class="table"></div>
+
+<script>
+function generate(){
+   var value = $("#myinput").val();
+    var table = $(".table");
+    value = Number(value);
+    var string = "";
+    for (let i = 0; i < value; i++) {
+      if(i === 0){
+          string = "&lt;table&gt; <br>"
+      }
+      string = string + `&lt;tr&gt; ${i}&lt;/tr&gt; <br>`;
+      if(i === value - 1){
+          string = string + "&lt;/table&gt;"
+      }
+    }
+    table.html(string)
+}
+$("button").click(()=>{
+    generate()
+})
+</script>
+</body>
+</html>
